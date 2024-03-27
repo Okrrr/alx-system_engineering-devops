@@ -8,13 +8,13 @@ then
 fi
 
 # assigning parameters to vaiaables
-path_to_file = $1
-ip = $2
-username = $3
-path_to_shh_key = $4
+path_to_file=$1
+ip=$2
+username=$3
+path_to_ssh_key=$4
 
 # disable strict host-key checking
-scp -o "StrickHostKeyChecking = no" -i "$path_to_shh_key" "$path_to_file" "$username@$ip:~/"
+scp -o "StrickHostKeyChecking=no" -i "$path_to_ssh_key" "$path_to_file" "$username@$ip:~/"
 
 # checking for transfer success
 if [ $? -eq 0 ]
