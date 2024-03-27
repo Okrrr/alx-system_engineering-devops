@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# Creating a 4096-bit SSH Key pair 
+ssh-keygen -b 4096 -N betty -f school
