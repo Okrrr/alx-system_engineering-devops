@@ -1,3 +1,1 @@
-Configuration management
-using a puppet
-
+0x0A. Configuration management
