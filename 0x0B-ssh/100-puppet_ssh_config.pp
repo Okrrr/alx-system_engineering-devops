@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # using puppet to make changes to config file
 
-file { 'ect/ssh/ssh_cofig':
+file { 'etc/ssh/ssh_config':
 	ensure => present,
 
 content =>"
