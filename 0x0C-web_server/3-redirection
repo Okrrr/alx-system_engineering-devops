@@ -1,16 +1,13 @@
 #!/usr/bin/env bash
-# performing redirections
-# 301 permanently
+# configuring a new Ubuntu machine to Perform a 301-redirection
 
 sudo apt-get update
-sude apt-get install -y nginx
+sudo apt-get install -y nginx
 
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
+# Performing a 301 Redirection
 replace_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Okrrr permanent;"
-
 sudo sed -i "s/server_name _;/$replace_string/" /etc/nginx/sites-enabled/default
 
-sudo nginx -t
-
-gudo service nginx restart
+sudo service nginx restart
