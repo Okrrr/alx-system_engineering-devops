@@ -3,21 +3,20 @@
 
 #updating packages
 sudo apt-get update
-sudo apt-get install -y nginx
+sudo apt-get install nginx
 
 #custom index page
 echo "Hello World!" | sudo tee /var/www/html/index.html
 
 #redirection
 new_string="server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/Okrrr permanent;"
-
 sudo sed -i "s/server_name _;/$new_string/" /etc/nginx/sites-enabled/default
 
 #custom error page
 echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 
 #custom http response header
-sudo sed -i "server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
+sudo sed -i "/server_name _;/a add_header X-Served-By $HOSTNAME;" /etc/nginx/sites-enabled/default
 
 sudo nginx -t
 
